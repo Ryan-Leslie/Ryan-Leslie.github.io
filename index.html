@@ -62,18 +62,23 @@
             border-bottom: 2px solid var(--primary-color);
         }
 
-        /* Layout Sections */
+        /* Fixed Section Layout */
         section {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 4rem 2rem;
+            width: 100%;
+            box-sizing: border-box;
+            padding: 4rem 0;
         }
 
+        /* Alternating Background Colors */
         section:nth-child(even) {
             background-color: var(--light-bg);
-            max-width: 100%;
-            padding-left: calc((100% - 900px) / 2 + 2rem);
-            padding-right: calc((100% - 900px) / 2 + 2rem);
+        }
+
+        /* Container that keeps content centered without breaking */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem;
             box-sizing: border-box;
         }
 
@@ -101,6 +106,9 @@
             padding: 1.5rem;
             text-align: center;
             border-radius: 4px;
+            border-left: 1px solid var(--border-color);
+            border-right: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
         }
 
         .stat-card h3 {
@@ -119,7 +127,7 @@
         /* Project Cards */
         .project-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 1.5rem;
             margin-top: 1.5rem;
         }
@@ -194,7 +202,7 @@
                 margin: 0.5rem 0;
             }
             section {
-                padding: 2.5rem 1rem;
+                padding: 2.5rem 0;
             }
         }
     </style>
@@ -202,3 +210,65 @@
 <body>
 
     <header>
+        <h1>Ryan Leslie</h1>
+        <nav>
+            <a href="#about">About Me</a>
+            <a href="#projects">Projects</a>
+            <a href="#credentials">Academics</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <p>
+                Hello! I am a student at Patrick Henry High School in San Diego, pursuing a pathway toward a major and career in <strong>Nursing</strong>. Driven by a deep commitment to patient care and community wellness, I regularly dedicate my time to healthcare environments and community service initiatives. 
+            </p>
+            <p>
+                Beyond academic focus, I enjoy playing instruments, programming solutions in Java, and participating actively in local campus clubs. I aim to blend empathy, scientific discipline, and problem-solving to make a meaningful difference in the medical field.
+            </p>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>4.7</h3>
+                    <p>Weighted GPA</p>
+                </div>
+                <div class="stat-card">
+                    <h3>115</h3>
+                    <p>Kaiser Hospital Hours</p>
+                </div>
+                <div class="stat-card">
+                    <h3>185+</h3>
+                    <p>Total Service Hours</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="container">
+            <h2>Projects & Involvements</h2>
+            <p>A compilation of my academic development, technical creations, and volunteer highlights:</p>
+            
+            <div class="project-grid">
+                <div class="project-card">
+                    <h3>Volunteer Hour Tracker</h3>
+                    <p>A custom Java application engineered to structure, monitor, and log community service metrics dynamically. Developed as an independent solution to manage real-world scheduling data.</p>
+                    <a href="https://github.com/phAPCSA25period1/final-project-Ryan-Leslie" target="_blank" class="btn">View GitHub Repository</a>
+                </div>
+
+                <div class="project-card">
+                    <h3>Environmental & Civic Engagement</h3>
+                    <p>Active organizer and participant in regional San Diego beach cleanups and high school service drives, cultivating local community health and sustainability frameworks.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="credentials">
+        <div class="container">
+            <h2>Academic Achievements</h2>
+            <p>Maintained a rigorous academic courseload with an emphasis on excellence and character development:</p>
+            <ul>
+                <li><strong>Straight-A Academic Record:</strong> Awarded consistently
