@@ -108,12 +108,13 @@
         }
 
         .profile-img {
-            width: 240px;
-            height: 240px;
-            object-fit: cover;
-            border-radius: 50%; /* Makes the photo a clean circle */
+            width: 220px;
+            height: 220px;
+            object-fit: cover; /* Prevents stretching or warping */
+            border-radius: 50%; /* Perfect circle */
             border: 4px solid #ffffff;
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+            background-color: #e2e8f0; /* Soft placeholder gray if image fails */
         }
 
         /* Stats/Highlights Layout */
@@ -223,7 +224,7 @@
         /* Mobile Adjustments */
         @media (max-width: 768px) {
             .profile-wrapper {
-                flex-direction: column-reverse; /* Puts image above text on phones */
+                flex-direction: column-reverse;
                 text-align: center;
                 gap: 1.5rem;
             }
@@ -262,7 +263,7 @@
                         Hello! I am a student at Patrick Henry High School in San Diego, pursuing a pathway toward a major and career in <strong>Nursing</strong>. Driven by a deep commitment to patient care and community wellness, I regularly dedicate my time to healthcare environments and community service initiatives. 
                     </p>
                     <p>
-                        Beyond academic focus, I enjoy playing instruments, programming solutions in Java, and participating actively in local campus clubs. I aim to blend empathy, scientific discipline, and problem-solving to make a meaningful difference in the medical field.
+                        Beyond academic focus, I enjoy playing instruments, programming solutions in Java, and serving as a leader within campus organizations. I aim to blend empathy, scientific discipline, and problem-solving to make a meaningful difference in the medical field.
                     </p>
                 </div>
                 
@@ -302,7 +303,7 @@
 
                 <div class="project-card">
                     <h3>Environmental & Civic Engagement</h3>
-                    <p>Active organizer and participant in regional San Diego beach cleanups and high school service drives, cultivating local community health and sustainability frameworks.</p>
+                    <p>Serving as a Board Member for the Surfrider Foundation club, organizing regional San Diego beach cleanups, and coordinating Key Club high school service drives to cultivate community health.</p>
                 </div>
             </div>
         </div>
@@ -315,7 +316,7 @@
             <ul>
                 <li><strong>Straight-A Academic Record:</strong> Awarded consistently across all high school semesters.</li>
                 <li><strong>AP Computer Science A (Java):</strong> Advanced software logic and algorithmic problem-solving training.</li>
-                <li><strong>High School Club Involvement:</strong> Active contributor to peer-led service, culture, and academic organizations at Patrick Henry High School.</li>
+                <li><strong>Campus Leadership & Involvement:</strong> Active Surfrider Club Board Member and Key Club contributor at Patrick Henry High School.</li>
             </ul>
         </div>
     </section>
@@ -325,8 +326,8 @@
             <h2>Contact Info</h2>
             <p>I would welcome the opportunity to connect regarding healthcare tracks, service milestones, or academic collaborations:</p>
             <ul class="contact-list">
-                <li>📧 <strong>Email:</strong> <a href="mailto:your-email@example.com">your-email@example.com</a></li>
-                <li>💼 <strong>LinkedIn:</strong> <a href="#" target="_blank">Connect on LinkedIn</a></li>
+                <li><strong>Email:</strong> <a href="mailto:rdleslie2008@icloud.com">rdleslie2008@icloud.com</a></li>
+                <li><strong>Phone:</strong> <a href="tel:6193726188">(619) 372-6188</a></li>
             </ul>
         </div>
     </section>
