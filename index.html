@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ryan Leslie | Professional Portfolio</title>
+    <title>Ryan Leslie | Digital Portfolio</title>
     <style>
-        /* Modern CSS Reset & Variables */
+        /* Modern CSS Variables & Styling */
         :root {
-            --primary-color: #2563eb; /* Clean Blue */
-            --dark-color: #1e293b;    /* Slate Dark */
-            --light-bg: #f8fafc;     /* Soft Off-White */
-            --text-color: #334155;   /* Soft Black */
+            --primary-color: #0ea5e9; /* Medical Sky Blue */
+            --dark-color: #0f172a;    /* Deep Slate */
+            --light-bg: #f8fafc;     /* Clean Off-White */
+            --text-color: #334155;   /* Soft Black/Gray */
             --border-color: #e2e8f0; /* Light Gray */
         }
 
@@ -27,7 +27,7 @@
             background-color: #ffffff;
         }
 
-        /* Header & Navigation */
+        /* Navigation Bar */
         header {
             background: var(--dark-color);
             color: #fff;
@@ -42,6 +42,7 @@
             margin: 0 0 0.5rem 0;
             font-size: 2rem;
             text-align: center;
+            letter-spacing: 0.5px;
         }
 
         nav {
@@ -61,7 +62,7 @@
             border-bottom: 2px solid var(--primary-color);
         }
 
-        /* Section Layouts */
+        /* Layout Sections */
         section {
             max-width: 900px;
             margin: 0 auto;
@@ -85,10 +86,40 @@
             margin-top: 0;
         }
 
-        /* Project Cards Grid */
+        /* Stats/Highlights Layout */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .stat-card {
+            background: #fff;
+            border-top: 4px solid var(--primary-color);
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+            padding: 1.5rem;
+            text-align: center;
+            border-radius: 4px;
+        }
+
+        .stat-card h3 {
+            margin: 0;
+            font-size: 2.2rem;
+            color: var(--dark-color);
+        }
+
+        .stat-card p {
+            margin: 0.5rem 0 0 0;
+            font-size: 0.95rem;
+            color: #64748b;
+            font-weight: 600;
+        }
+
+        /* Project Cards */
         .project-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 1.5rem;
             margin-top: 1.5rem;
         }
@@ -112,19 +143,10 @@
             color: var(--dark-color);
         }
 
-        /* Generic Lists (Credentials & Contacts) */
-        ul {
-            padding-left: 1.2rem;
-        }
-
-        li {
-            margin-bottom: 0.5rem;
-        }
-
-        /* Buttons & Links */
+        /* Custom Buttons & Lists */
         .btn {
             display: inline-block;
-            background: var(--primary-color);
+            background: var(--dark-color);
             color: #fff;
             padding: 0.5rem 1rem;
             text-decoration: none;
@@ -135,7 +157,15 @@
         }
 
         .btn:hover {
-            background: #1d4ed8;
+            background: var(--primary-color);
+        }
+
+        ul {
+            padding-left: 1.2rem;
+        }
+
+        li {
+            margin-bottom: 0.75rem;
         }
 
         .contact-list {
@@ -145,26 +175,26 @@
 
         .contact-list li {
             font-size: 1.1rem;
-            margin-bottom: 0.75rem;
+            margin-bottom: 1rem;
         }
 
         /* Footer */
         footer {
             text-align: center;
-            padding: 2rem;
+            padding: 2.5rem;
             background: var(--dark-color);
             color: #94a3b8;
             font-size: 0.9rem;
         }
 
-        /* Mobile Responsive adjustment */
+        /* Mobile Adjustments */
         @media (max-width: 600px) {
             nav a {
                 display: block;
                 margin: 0.5rem 0;
             }
             section {
-                padding: 2rem 1rem;
+                padding: 2.5rem 1rem;
             }
         }
     </style>
@@ -172,63 +202,3 @@
 <body>
 
     <header>
-        <h1>Ryan Leslie</h1>
-        <nav>
-            <a href="#about">About Me</a>
-            <a href="#projects">Projects</a>
-            <a href="#credentials">Credentials</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </header>
-
-    <section id="about">
-        <h2>About Me</h2>
-        <p>
-            Hello! My name is Ryan Leslie. I am passionate about volunteering, playing instruments, programming in Java, participating in local clubs, and solving real-world problems. Welcome to my digital portfolio!
-        </p>
-    </section>
-
-    <section id="projects">
-        <h2>Projects</h2>
-        <p>Here are some of the key technical projects I have built:</p>
-        
-        <div class="project-grid">
-            <div class="project-card">
-                <h3>Volunteer Hour Tracker</h3>
-                <p>A Java-based data management system designed to log, organize, and track community service hours efficiently.</p>
-                <a href="https://github.com/phAPCSA25period1/final-project-Ryan-Leslie" target="_blank" class="btn">View GitHub Repository</a>
-            </div>
-
-            <div class="project-card">
-                <h3>Project Title 2</h3>
-                <p>A brief 2-3 sentence description of another project, highlighting the tools, languages, or skills you used to build it.</p>
-                <a href="#" target="_blank" class="btn">View Project</a>
-            </div>
-        </div>
-    </section>
-
-    <section id="credentials">
-        <h2>Credentials & Achievements</h2>
-        <p>I have earned the following certifications, academic achievements, and digital badges:</p>
-        <ul>
-            <li><strong>Achievement/Class:</strong> AP Computer Science A (Java)</li>
-            <li><strong>Certification 2:</strong> [e.g., Coursera, AWS, or Club Leadership position]</li>
-            <li><strong>Award/Honor:</strong> [e.g., Honor Roll, Volunteer Award, etc.]</li>
-        </ul>
-    </section>
-
-    <section id="contact">
-        <h2>Contact Info</h2>
-        <p>I'd love to connect! Feel free to reach out to me through any of the channels below:</p>
-        <ul class="contact-list">
-            <li>📧 <strong>Email:</strong> <a href="mailto:your-email@example.com">your-email@example.com</a></li>
-            <li>💼 <strong>LinkedIn:</strong> <a href="#" target="_blank">linkedin.com/in/yourprofile</a></li>
-        </ul>
-    </section>
-
-    <footer>
-        <p>&copy; 2026 Ryan Leslie. All rights reserved.</p>
-    </footer>
-
-</body>
-</html>
