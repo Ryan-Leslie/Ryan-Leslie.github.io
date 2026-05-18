@@ -151,4 +151,189 @@
 
         /* Project Cards */
         .project-grid {
-            display: grid
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .project-card {
+            background: #fff;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-card h3 {
+            margin-top: 0;
+            color: var(--dark-color);
+        }
+
+        /* Custom Buttons & Lists */
+        .btn {
+            display: inline-block;
+            background: var(--dark-color);
+            color: #fff;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            transition: background 0.2s ease;
+        }
+
+        .btn:hover {
+            background: var(--primary-color);
+        }
+
+        ul {
+            padding-left: 1.2rem;
+        }
+
+        li {
+            margin-bottom: 0.75rem;
+        }
+
+        .contact-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .contact-list li {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2.5rem;
+            background: var(--dark-color);
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            .profile-wrapper {
+                flex-direction: column-reverse; /* Puts image above text on phones */
+                text-align: center;
+                gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            nav a {
+                display: block;
+                margin: 0.5rem 0;
+            }
+            section {
+                padding: 2.5rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Ryan Leslie</h1>
+        <nav>
+            <a href="#about">About Me</a>
+            <a href="#projects">Projects</a>
+            <a href="#credentials">Academics</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            
+            <div class="profile-wrapper">
+                <div class="profile-text">
+                    <p>
+                        Hello! I am a student at Patrick Henry High School in San Diego, pursuing a pathway toward a major and career in <strong>Nursing</strong>. Driven by a deep commitment to patient care and community wellness, I regularly dedicate my time to healthcare environments and community service initiatives. 
+                    </p>
+                    <p>
+                        Beyond academic focus, I enjoy playing instruments, programming solutions in Java, and participating actively in local campus clubs. I aim to blend empathy, scientific discipline, and problem-solving to make a meaningful difference in the medical field.
+                    </p>
+                </div>
+                
+                <div class="profile-image-container">
+                    <img src="Kaiser picture.jpg" alt="Ryan Leslie profile picture" class="profile-img">
+                </div>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>4.7</h3>
+                    <p>Weighted GPA</p>
+                </div>
+                <div class="stat-card">
+                    <h3>115</h3>
+                    <p>Kaiser Hospital Hours</p>
+                </div>
+                <div class="stat-card">
+                    <h3>185+</h3>
+                    <p>Total Service Hours</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="container">
+            <h2>Projects & Involvements</h2>
+            <p>A compilation of my academic development, technical creations, and volunteer highlights:</p>
+            
+            <div class="project-grid">
+                <div class="project-card">
+                    <h3>Volunteer Hour Tracker</h3>
+                    <p>A custom Java application engineered to structure, monitor, and log community service metrics dynamically. Developed as an independent solution to manage real-world scheduling data.</p>
+                    <a href="https://github.com/phAPCSA25period1/final-project-Ryan-Leslie" target="_blank" class="btn">View GitHub Repository</a>
+                </div>
+
+                <div class="project-card">
+                    <h3>Environmental & Civic Engagement</h3>
+                    <p>Active organizer and participant in regional San Diego beach cleanups and high school service drives, cultivating local community health and sustainability frameworks.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="credentials">
+        <div class="container">
+            <h2>Academic Achievements</h2>
+            <p>Maintained a rigorous academic courseload with an emphasis on excellence and character development:</p>
+            <ul>
+                <li><strong>Straight-A Academic Record:</strong> Awarded consistently across all high school semesters.</li>
+                <li><strong>AP Computer Science A (Java):</strong> Advanced software logic and algorithmic problem-solving training.</li>
+                <li><strong>High School Club Involvement:</strong> Active contributor to peer-led service, culture, and academic organizations at Patrick Henry High School.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2>Contact Info</h2>
+            <p>I would welcome the opportunity to connect regarding healthcare tracks, service milestones, or academic collaborations:</p>
+            <ul class="contact-list">
+                <li>📧 <strong>Email:</strong> <a href="mailto:your-email@example.com">your-email@example.com</a></li>
+                <li>💼 <strong>LinkedIn:</strong> <a href="#" target="_blank">Connect on LinkedIn</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Ryan Leslie. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
