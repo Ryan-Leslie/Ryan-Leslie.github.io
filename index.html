@@ -12,6 +12,7 @@
             --light-bg: #f8fafc;     /* Clean Off-White */
             --text-color: #334155;   /* Soft Black/Gray */
             --border-color: #e2e8f0; /* Light Gray */
+            --terminal-bg: #011627;  /* Code Editor Dark Blue */
         }
 
         html {
@@ -62,21 +63,19 @@
             border-bottom: 2px solid var(--primary-color);
         }
 
-        /* Fixed Section Layout */
+        /* Section Layouts */
         section {
             width: 100%;
             box-sizing: border-box;
-            padding: 4rem 0;
+            padding: 5rem 0;
         }
 
-        /* Alternating Background Colors */
         section:nth-child(even) {
             background-color: var(--light-bg);
         }
 
-        /* Container that keeps content centered safely */
         .container {
-            max-width: 900px;
+            max-width: 950px;
             margin: 0 auto;
             padding: 0 2rem;
             box-sizing: border-box;
@@ -89,18 +88,19 @@
             padding-bottom: 0.5rem;
             display: inline-block;
             margin-top: 0;
-        }
-
-        /* Profile Split Layout */
-        .profile-wrapper {
-            display: flex;
-            align-items: center;
-            gap: 2.5rem;
             margin-bottom: 2rem;
         }
 
+        /* Profile Layout */
+        .profile-wrapper {
+            display: flex;
+            align-items: flex-start;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
         .profile-text {
-            flex: 1;
+            flex: 1.2;
         }
 
         .profile-image-container {
@@ -113,33 +113,88 @@
             object-fit: cover;
             border-radius: 50%;
             border: 4px solid #ffffff;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
             background-color: #e2e8f0;
         }
 
-        /* Stats/Highlights Layout */
+        /* Developer Terminal UI Element */
+        .terminal-window {
+            background-color: var(--terminal-bg);
+            border-radius: 8px;
+            box-shadow: 0 15px 25px -5px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            font-family: 'Consolas', 'Courier New', Courier, monospace;
+            margin-top: 2rem;
+            border: 1px solid #1e293b;
+        }
+
+        .terminal-header {
+            background-color: #1e293b;
+            padding: 0.5rem 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+        .dot-red { background-color: #ef4444; }
+        .dot-yellow { background-color: #eab308; }
+        .dot-green { background-color: #22c55e; }
+
+        .terminal-title {
+            color: #94a3b8;
+            font-size: 0.8rem;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .terminal-body {
+            padding: 1.25rem;
+            color: #f8fafc;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        /* Basic Java Syntax Highlighting Colors */
+        .j-keyword { color: #ff7b72; font-weight: bold; }
+        .j-class { color: #f1fa8c; }
+        .j-string { color: #a5d6ff; }
+        .j-comment { color: #8b949e; font-style: italic; }
+        .j-indent { padding-left: 1.5rem; }
+        .j-indent-2 { padding-left: 3rem; }
+
+        /* Stats Dashboard */
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 1.5rem;
-            margin: 2rem 0;
+            margin: 3rem 0;
         }
 
         .stat-card {
             background: #fff;
             border-top: 4px solid var(--primary-color);
             box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
-            padding: 1.5rem;
+            padding: 1.75rem;
             text-align: center;
-            border-radius: 4px;
-            border-left: 1px solid var(--border-color);
-            border-right: 1px solid var(--border-color);
-            border-bottom: 1px solid var(--border-color);
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            border-top: 4px solid var(--primary-color);
+            transition: transform 0.2s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-2px);
         }
 
         .stat-card h3 {
             margin: 0;
-            font-size: 2.2rem;
+            font-size: 2.5rem;
             color: var(--dark-color);
         }
 
@@ -150,11 +205,11 @@
             font-weight: 600;
         }
 
-        /* Project Cards */
+        /* Dynamic Project Cards & Badges */
         .project-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
             margin-top: 1.5rem;
         }
 
@@ -164,27 +219,50 @@
             background: #fff;
             border: 1px solid var(--border-color);
             border-radius: 8px;
-            padding: 1.5rem;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            padding: 1.75rem;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);
+            transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s ease;
         }
 
         .project-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            transform: translateY(-6px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            border-color: #cbd5e1;
         }
 
         .project-card h3 {
             margin-top: 0;
+            margin-bottom: 0.5rem;
             color: var(--dark-color);
+            font-size: 1.4rem;
+        }
+
+        .badge-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-bottom: 1rem;
+        }
+
+        .badge {
+            background-color: #eff6ff;
+            color: #2563eb;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .project-card p {
             flex-grow: 1;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+            color: #475569;
         }
 
-        /* Skills Tags Layout */
+        /* Skills Tags Base */
         .skills-container {
             margin-top: 1.5rem;
         }
@@ -200,24 +278,24 @@
         .skill-tag {
             background-color: #f1f5f9;
             color: var(--dark-color);
-            padding: 0.25rem 0.75rem;
+            padding: 0.35rem 0.85rem;
             border-radius: 9999px;
             font-size: 0.85rem;
             font-weight: 500;
             border: 1px solid var(--border-color);
         }
 
-        /* Custom Buttons & Lists */
+        /* Interactive Buttons & Formatting */
         .btn {
             display: inline-block;
             align-self: flex-start;
             background: var(--dark-color);
             color: #fff;
-            padding: 0.5rem 1rem;
+            padding: 0.6rem 1.2rem;
             text-decoration: none;
-            border-radius: 4px;
+            border-radius: 6px;
             font-size: 0.9rem;
-            margin-top: auto;
+            font-weight: 500;
             transition: background 0.2s ease;
         }
 
@@ -226,7 +304,7 @@
         }
 
         ul {
-            padding-left: 1.2rem;
+            padding-left: 1.5rem;
         }
 
         li {
@@ -252,22 +330,23 @@
             font-size: 0.9rem;
         }
 
-        /* Mobile Adjustments */
+        /* Mobile Layout Modifiers */
         @media (max-width: 768px) {
             .profile-wrapper {
                 flex-direction: column-reverse;
                 text-align: center;
-                gap: 1.5rem;
+                gap: 2rem;
+                align-items: center;
             }
         }
 
         @media (max-width: 600px) {
             nav a {
                 display: block;
-                margin: 0.5rem 0;
+                margin: 0.75rem 0;
             }
             section {
-                padding: 2.5rem 0;
+                padding: 3.5rem 0;
             }
         }
     </style>
@@ -298,7 +377,7 @@
                     </p>
                     
                     <div class="skills-container">
-                        <strong>Key Competencies:</strong>
+                        <strong>Core Competencies:</strong>
                         <ul class="skills-list">
                             <li class="skill-tag">Patient Interaction</li>
                             <li class="skill-tag">Hospital Operations</li>
@@ -311,6 +390,24 @@
                 
                 <div class="profile-image-container">
                     <img src="https://your-hosting-site.com/kaiser-picture.jpg" alt="Ryan Leslie profile picture" class="profile-img">
+                </div>
+            </div>
+
+            <div class="terminal-window">
+                <div class="terminal-header">
+                    <span class="dot dot-red"></span>
+                    <span class="dot dot-yellow"></span>
+                    <span class="dot dot-green"></span>
+                    <span class="terminal-title">RyanLeslie.java</span>
+                </div>
+                <div class="terminal-body">
+                    <div><span class="j-keyword">public class</span> <span class="j-class">RyanLeslie</span> {</div>
+                    <div class="j-indent"><span class="j-keyword">public static void</span> <span class="j-class">main</span>(String[] args) {</div>
+                    <div class="j-indent-2"><span class="j-comment">// Blending medical discipline with logic architecture</span></div>
+                    <div class="j-indent-2">String objective = <span class="j-string">"Leverage OOP patterns to upgrade healthcare metrics."</span>;</div>
+                    <div class="j-indent-2">System.out.println(objective);</div>
+                    <div class="j-indent">}</div>
+                    <div>}</div>
                 </div>
             </div>
 
@@ -339,12 +436,22 @@
             <div class="project-grid">
                 <div class="project-card">
                     <h3>Volunteer Hour Tracker</h3>
+                    <div class="badge-container">
+                        <span class="badge">Java</span>
+                        <span class="badge">Data Parsing</span>
+                        <span class="badge">Systems Design</span>
+                    </div>
                     <p>A custom Java application engineered to structure, monitor, and log community service metrics dynamically. Developed as an independent solution to manage real-world scheduling and track clinical metrics.</p>
                     <a href="https://github.com/phAPCSA25period1/final-project-Ryan-Leslie" target="_blank" class="btn">View GitHub Repository</a>
                 </div>
 
                 <div class="project-card">
                     <h3>Zootopia Pet Tamagotchi</h3>
+                    <div class="badge-container">
+                        <span class="badge">Java</span>
+                        <span class="badge">OOP Logic</span>
+                        <span class="badge">State Preservation</span>
+                    </div>
                     <p>A dynamic, interactive pet simulation game designed in Java. Implements object-oriented architecture to drive state preservation mechanics, animal behavioral algorithms, and complex user gameplay loops.</p>
                     <a href="https://github.com/Ryan-Leslie/Zootopia_Pet_Project" target="_blank" class="btn">View GitHub Repository</a>
                 </div>
