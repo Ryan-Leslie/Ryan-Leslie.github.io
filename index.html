@@ -159,6 +159,8 @@
         }
 
         .project-card {
+            display: flex;
+            flex-direction: column;
             background: #fff;
             border: 1px solid var(--border-color);
             border-radius: 8px;
@@ -177,16 +179,45 @@
             color: var(--dark-color);
         }
 
+        .project-card p {
+            flex-grow: 1;
+            margin-bottom: 1rem;
+        }
+
+        /* Skills Tags Layout */
+        .skills-container {
+            margin-top: 1.5rem;
+        }
+        
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            padding: 0;
+            list-style: none;
+        }
+        
+        .skill-tag {
+            background-color: #f1f5f9;
+            color: var(--dark-color);
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            border: 1px solid var(--border-color);
+        }
+
         /* Custom Buttons & Lists */
         .btn {
             display: inline-block;
+            align-self: flex-start;
             background: var(--dark-color);
             color: #fff;
             padding: 0.5rem 1rem;
             text-decoration: none;
             border-radius: 4px;
             font-size: 0.9rem;
-            margin-top: 1rem;
+            margin-top: auto;
             transition: background 0.2s ease;
         }
 
@@ -263,8 +294,20 @@
                         Hello! I am a student at Patrick Henry High School in San Diego, pursuing a pathway toward a major and career in <strong>Nursing</strong>. Driven by a deep commitment to patient care and community wellness, I regularly dedicate my time to healthcare environments and community service initiatives. 
                     </p>
                     <p>
-                        Beyond academic focus, I enjoy playing instruments, programming solutions in Java, and serving as a leader within campus organizations. I aim to blend empathy, scientific discipline, and problem-solving to make a meaningful difference in the medical field.
+                        Beyond academic focus, I enjoy playing instruments, programming solutions in Java, and serving as a leader within campus organizations. I aim to blend empathy, scientific discipline, and technical problem-solving to make a meaningful difference in the medical field.
                     </p>
+                    
+                    <!-- SUGGESTION: Core technical & clinical skills summary tag layout -->
+                    <div class="skills-container">
+                        <strong>Key Competencies:</strong>
+                        <ul class="skills-list">
+                            <li class="skill-tag">Patient Interaction</li>
+                            <li class="skill-tag">Hospital Operations</li>
+                            <li class="skill-tag">Java (AP CS A)</li>
+                            <li class="skill-tag">Object-Oriented Programming</li>
+                            <li class="skill-tag">Community Leadership</li>
+                        </ul>
+                    </div>
                 </div>
                 
                 <div class="profile-image-container">
@@ -297,14 +340,23 @@
             <div class="project-grid">
                 <div class="project-card">
                     <h3>Volunteer Hour Tracker</h3>
-                    <p>A custom Java application engineered to structure, monitor, and log community service metrics dynamically. Developed as an independent solution to manage real-world scheduling data.</p>
+                    <p>A custom Java application engineered to structure, monitor, and log community service metrics dynamically. Developed as an independent solution to manage real-world scheduling and track clinical metrics.</p>
                     <a href="https://github.com/phAPCSA25period1/final-project-Ryan-Leslie" target="_blank" class="btn">View GitHub Repository</a>
+                </div>
+
+                <div class="project-card">
+                    <h3>Zootopia Pet Tamagotchi</h3>
+                    <p>A dynamic, interactive pet simulation game designed in Java. Implements object-oriented architecture to drive state preservation mechanics, animal behavioral algorithms, and complex user gameplay loops.</p>
+                    <a href="https://github.com/Ryan-Leslie/Zootopia_Pet_Project" target="_blank" class="btn">View GitHub Repository</a>
                 </div>
 
                 <div class="project-card">
                     <h3>Environmental & Civic Engagement</h3>
                     <p>Serving as a Board Member for the Surfrider Foundation club, organizing regional San Diego beach cleanups, and coordinating Key Club high school service drives to cultivate community health.</p>
+                    <!-- SUGGESTION: Add a photo folder or writeup link if you document these cleanups -->
                 </div>
+                
+                <!-- SUGGESTION: Placeholder to inspire you to add upcoming or in-progress clinical assignments, e.g., "Mesa College Anatomy Coursework" or "First Aid Certification" -->
             </div>
         </div>
     </section>
@@ -315,8 +367,9 @@
             <p>Maintained a rigorous academic courseload with an emphasis on excellence and character development:</p>
             <ul>
                 <li><strong>Straight-A Academic Record:</strong> Awarded consistently across all high school semesters.</li>
-                <li><strong>AP Computer Science A (Java):</strong> Advanced software logic and algorithmic problem-solving training.</li>
+                <li><strong>AP Computer Science A (Java):</strong> Advanced software logic, data structures, and algorithmic problem-solving training.</li>
                 <li><strong>Campus Leadership & Involvement:</strong> Active Surfrider Club Board Member and Key Club contributor at Patrick Henry High School.</li>
+                <!-- SUGGESTION: List relevant science classes you have taken here (e.g., AP Biology, Chemistry) to bolster your Nursing profile -->
             </ul>
         </div>
     </section>
@@ -328,6 +381,7 @@
             <ul class="contact-list">
                 <li><strong>Email:</strong> <a href="mailto:rdleslie2008@icloud.com">rdleslie2008@icloud.com</a></li>
                 <li><strong>Phone:</strong> <a href="tel:6193726188">(619) 372-6188</a></li>
+                <!-- SUGGESTION: Consider adding a professional LinkedIn profile URL here as you expand your career network -->
             </ul>
         </div>
     </section>
