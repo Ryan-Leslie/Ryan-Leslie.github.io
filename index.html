@@ -3,420 +3,486 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ryan Leslie | Digital Portfolio</title>
+    <title>Ryan Leslie | Portfolio</title>
+    <meta name="description" content="Ryan Leslie is a San Diego high school student, Kaiser Hospital volunteer, and aspiring nursing professional with a 4.7 GPA, 185+ service hours, and a Java certification. Graduating Patrick Henry High School in 2027.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        /* Modern CSS Variables & Styling */
         :root {
-            --primary-color: #0ea5e9; /* Medical Sky Blue */
-            --dark-color: #0f172a;    /* Deep Slate */
-            --light-bg: #f8fafc;     /* Clean Off-White */
-            --text-color: #334155;   /* Soft Black/Gray */
-            --border-color: #e2e8f0; /* Light Gray */
+            --navy:    #0b1f3a;
+            --teal:    #0d9488;
+            --teal-lt: #14b8a6;
+            --cream:   #f7f4ef;
+            --white:   #ffffff;
+            --slate:   #475569;
+            --border:  #e2e8f0;
+            --card-bg: #ffffff;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html { scroll-behavior: smooth; }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: #ffffff;
-            overflow-x: hidden;
+            font-family: 'DM Sans', sans-serif;
+            color: #1e293b;
+            background: var(--white);
+            line-height: 1.7;
         }
 
-        /* Navigation Bar */
+        /* HEADER */
         header {
-            background: var(--dark-color);
-            color: #fff;
-            padding: 1.5rem 0;
+            background: var(--navy);
             position: sticky;
             top: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            z-index: 100;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.25);
         }
 
-        header h1 {
-            margin: 0 0 0.5rem 0;
-            font-size: 2rem;
-            text-align: center;
+        .header-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 1.1rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #fff;
             letter-spacing: 0.5px;
         }
 
-        nav {
-            text-align: center;
-        }
+        .logo span { color: var(--teal-lt); }
+
+        nav { display: flex; gap: 0.25rem; }
 
         nav a {
-            color: #cbd5e1;
+            color: #94a3b8;
             text-decoration: none;
-            margin: 0 1rem;
+            font-size: 0.88rem;
             font-weight: 500;
-            position: relative;
-            padding-bottom: 4px;
-            transition: color 0.3s ease;
+            letter-spacing: 0.4px;
+            padding: 0.45rem 0.85rem;
+            border-radius: 4px;
+            transition: color 0.2s, background 0.2s;
         }
 
         nav a:hover {
-            color: #ffffff;
+            color: #fff;
+            background: rgba(255,255,255,0.08);
         }
 
-        /* Modern Navigation Hover Underline Animation */
-        nav a::after {
+        /* HERO */
+        .hero {
+            background: linear-gradient(135deg, var(--navy) 0%, #12304e 60%, #0d4a5e 100%);
+            color: #fff;
+            padding: 6rem 2rem 5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
             content: '';
             position: absolute;
-            width: 100%;
-            transform: scaleX(0);
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background-color: var(--primary-color);
-            transform-origin: bottom right;
-            transition: transform 0.25s ease-out;
+            inset: 0;
+            background: radial-gradient(ellipse at 70% 50%, rgba(13,148,136,0.18) 0%, transparent 65%);
+            pointer-events: none;
         }
 
-        nav a:hover::after {
-            transform: scaleX(1);
-            transform-origin: bottom left;
-        }
-
-        /* Section Layouts */
-        section {
-            width: 100%;
-            box-sizing: border-box;
-            padding: 5rem 0;
-        }
-
-        section:nth-child(even) {
-            background-color: var(--light-bg);
-        }
-
-        .container {
-            max-width: 950px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            box-sizing: border-box;
-        }
-
-        h2 {
-            color: var(--dark-color);
-            font-size: 1.75rem;
-            border-bottom: 3px solid var(--primary-color);
-            padding-bottom: 0.5rem;
-            display: inline-block;
-            margin-top: 0;
-            margin-bottom: 2rem;
-        }
-
-        /* Profile Entrance Animation */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .profile-wrapper {
-            display: flex;
-            align-items: center;
-            gap: 3rem;
-            margin-bottom: 3rem;
-            animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-
-        .profile-text {
-            flex: 1.2;
-        }
-
-        .profile-image-container {
-            flex-shrink: 0;
-        }
-
-        .profile-img {
-            width: 220px;
-            height: 220px;
-            object-fit: cover;
+        .hero-photo {
+            width: 160px;
+            height: 160px;
             border-radius: 50%;
-            border: 4px solid #ffffff;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-            background-color: #e2e8f0;
-            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+            object-fit: cover;
+            border: 4px solid var(--teal-lt);
+            box-shadow: 0 0 0 8px rgba(20,184,166,0.15);
+            margin-bottom: 1.75rem;
+            background: #1e3a5f;
         }
 
-        /* Image Micro-Interaction */
-        .profile-img:hover {
-            transform: scale(1.05) rotate(1deg);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15);
-        }
-
-        /* Stats Dashboard Grid */
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1.5rem;
-            margin: 3rem 0;
-        }
-
-        .stat-card {
-            background: #fff;
-            border: 1px solid var(--border-color);
-            border-top: 4px solid var(--primary-color);
-            padding: 1.75rem;
-            text-align: center;
-            border-radius: 6px;
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);
-            transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s ease;
-        }
-
-        .stat-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 20px -5px rgba(0, 0, 0, 0.08);
-        }
-
-        .stat-card h3 {
-            margin: 0;
-            font-size: 2.5rem;
-            color: var(--dark-color);
-        }
-
-        .stat-card p {
-            margin: 0.5rem 0 0 0;
-            font-size: 0.95rem;
-            color: #64748b;
-            font-weight: 600;
-        }
-
-        /* Dynamic Interactive Project Cards */
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-            margin-top: 1.5rem;
-        }
-
-        .project-card {
-            display: flex;
-            flex-direction: column;
-            background: #fff;
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 1.75rem;
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);
-            position: relative;
-            transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        /* Elevation Animation on Hover */
-        .project-card:hover {
-            transform: translateY(-6px);
-            border-color: var(--primary-color);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
-
-        .project-card h3 {
-            margin-top: 0;
-            margin-bottom: 0.5rem;
-            color: var(--dark-color);
-            font-size: 1.4rem;
-            transition: color 0.2s ease;
-        }
-
-        .project-card:hover h3 {
-            color: var(--primary-color);
-        }
-
-        .badge-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.4rem;
-            margin-bottom: 1rem;
-        }
-
-        .badge {
-            background-color: #eff6ff;
-            color: #2563eb;
-            font-size: 0.75rem;
-            font-weight: 600;
-            padding: 0.2rem 0.6rem;
-            border-radius: 4px;
-            text-transform: uppercase;
+        .hero h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.4rem, 5vw, 3.4rem);
+            font-weight: 700;
             letter-spacing: 0.5px;
-            transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
-        }
-
-        .project-card:hover .badge {
-            transform: scale(1.03);
-            background-color: var(--primary-color);
-            color: #ffffff;
-        }
-
-        .project-card p {
-            flex-grow: 1;
-            margin-bottom: 1.5rem;
-            font-size: 0.95rem;
-            color: #475569;
-        }
-
-        /* Skills Layout */
-        .skills-container {
-            margin-top: 1.5rem;
-        }
-        
-        .skills-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            padding: 0;
-            list-style: none;
-        }
-        
-        .skill-tag {
-            background-color: #f1f5f9;
-            color: var(--dark-color);
-            padding: 0.35rem 0.85rem;
-            border-radius: 9999px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            border: 1px solid var(--border-color);
-            transition: all 0.2s ease;
-        }
-
-        .skill-tag:hover {
-            background-color: var(--dark-color);
-            color: #ffffff;
-            transform: translateY(-2px);
-        }
-
-        /* Interactive Buttons */
-        .btn {
-            display: inline-block;
-            align-self: flex-start;
-            background: var(--dark-color);
-            color: #fff;
-            padding: 0.6rem 1.2rem;
-            text-decoration: none;
-            border-radius: 6px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-            transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .btn:hover {
-            background: var(--primary-color);
-            transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(14, 165, 233, 0.3);
-        }
-
-        ul {
-            padding-left: 1.5rem;
-        }
-
-        li {
+            line-height: 1.15;
             margin-bottom: 0.75rem;
         }
 
-        .contact-list {
-            list-style: none;
-            padding: 0;
-        }
-
-        .contact-list li {
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 2.5rem;
-            background: var(--dark-color);
+        .hero-subtitle {
+            font-size: 1.05rem;
             color: #94a3b8;
+            max-width: 560px;
+            margin: 0 auto 2rem;
+            font-weight: 400;
+        }
+
+        .hero-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            justify-content: center;
+        }
+
+        .tag {
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.15);
+            color: #cbd5e1;
+            font-size: 0.8rem;
+            font-weight: 500;
+            padding: 0.35rem 0.85rem;
+            border-radius: 999px;
+            letter-spacing: 0.3px;
+        }
+
+        /* SHARED LAYOUT */
+        section { padding: 5rem 0; width: 100%; }
+        section:nth-child(even) { background: var(--cream); }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--teal);
+            margin-bottom: 0.5rem;
+        }
+
+        h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.9rem, 3.5vw, 2.5rem);
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+        }
+
+        .section-divider {
+            width: 48px;
+            height: 3px;
+            background: var(--teal);
+            border-radius: 2px;
+            margin-bottom: 2rem;
+        }
+
+        /* ABOUT */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 340px;
+            gap: 4rem;
+            align-items: start;
+            margin-top: 1rem;
+        }
+
+        .about-text p {
+            color: var(--slate);
+            margin-bottom: 1.1rem;
+            font-size: 1.02rem;
+        }
+
+        .about-text p:last-child { margin-bottom: 0; }
+
+        .stats-col { display: flex; flex-direction: column; gap: 1rem; }
+
+        .stat-card {
+            background: var(--white);
+            border-left: 4px solid var(--teal);
+            border-radius: 6px;
+            padding: 1.25rem 1.5rem;
+            box-shadow: 0 1px 8px rgba(0,0,0,0.06);
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+        }
+
+        .stat-num {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: var(--navy);
+            line-height: 1;
+            white-space: nowrap;
+        }
+
+        .stat-desc {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--slate);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            line-height: 1.35;
+        }
+
+        /* PROJECTS */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.75rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            transition: transform 0.22s ease, box-shadow 0.22s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+        }
+
+        .project-type {
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--teal);
+            margin-bottom: 0.6rem;
+        }
+
+        .project-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 0.75rem;
+            line-height: 1.25;
+        }
+
+        .project-card p {
+            color: var(--slate);
+            font-size: 0.95rem;
+            flex: 1;
+            margin-bottom: 1.25rem;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .tech-pill {
+            background: #f1f5f9;
+            color: #475569;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.2rem 0.65rem;
+            border-radius: 999px;
+            letter-spacing: 0.2px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: var(--navy);
+            color: #fff;
+            padding: 0.55rem 1.1rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            width: fit-content;
+            transition: background 0.2s ease;
+        }
+
+        .btn:hover { background: var(--teal); }
+
+        .btn-row { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+
+        /* ACADEMICS */
+        .credentials-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .credentials-list li {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--teal);
+            border-radius: 6px;
+            padding: 1.25rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+        }
+
+        .credentials-list li strong {
+            font-size: 0.97rem;
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        .credentials-list li span {
             font-size: 0.9rem;
+            color: var(--slate);
         }
 
-        /* Mobile Adjustments */
-        @media (max-width: 768px) {
-            .profile-wrapper {
-                flex-direction: column-reverse;
-                text-align: center;
-                gap: 2rem;
-                align-items: center;
-            }
+        /* CONTACT */
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 1rem;
+            align-items: start;
         }
 
-        @media (max-width: 600px) {
-            nav a {
-                display: block;
-                margin: 0.75rem 0;
-            }
-            section {
-                padding: 3.5rem 0;
-            }
+        .contact-intro {
+            color: var(--slate);
+            font-size: 1.02rem;
+            line-height: 1.75;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.85rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem 1.25rem;
+            text-decoration: none;
+            color: var(--navy);
+            font-weight: 500;
+            font-size: 0.97rem;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .contact-item:hover {
+            border-color: var(--teal);
+            box-shadow: 0 0 0 3px rgba(13,148,136,0.12);
+        }
+
+        .contact-label {
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--teal);
+            display: block;
+            margin-bottom: 0.1rem;
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--navy);
+            color: #64748b;
+            text-align: center;
+            padding: 2.25rem;
+            font-size: 0.87rem;
+        }
+
+        footer span { color: var(--teal-lt); }
+
+        /* RESPONSIVE */
+        @media (max-width: 780px) {
+            .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+            .contact-wrapper { grid-template-columns: 1fr; gap: 2rem; }
+            .header-inner { flex-direction: column; gap: 0.75rem; text-align: center; }
+        }
+
+        @media (max-width: 520px) {
+            nav a { font-size: 0.82rem; padding: 0.4rem 0.6rem; }
+            .hero { padding: 4rem 1.5rem 3.5rem; }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>Ryan Leslie</h1>
-        <nav>
-            <a href="#about">About Me</a>
-            <a href="#projects">Projects</a>
-            <a href="#credentials">Academics</a>
-            <a href="#contact">Contact</a>
-        </nav>
+        <div class="header-inner">
+            <div class="logo">Ryan <span>Leslie</span></div>
+            <nav>
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#credentials">Academics</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
     </header>
+
+    <div class="hero">
+        <img src="Kaiser picture.jpg" alt="Ryan Leslie" class="hero-photo">
+        <h1>Ryan Leslie</h1>
+        <p class="hero-subtitle">
+            Future Nursing Professional &amp; Student Developer — Patrick Henry High School, San Diego
+        </p>
+        <div class="hero-tags">
+            <span class="tag">Healthcare &amp; Patient Care</span>
+            <span class="tag">Java Development</span>
+            <span class="tag">Community Service</span>
+            <span class="tag">Academic Excellence</span>
+            <span class="tag">Java Certified</span>
+            <span class="tag">CPR Certification In Progress</span>
+        </div>
+    </div>
 
     <section id="about">
         <div class="container">
+            <p class="section-label">Introduction</p>
             <h2>About Me</h2>
-            
-            <div class="profile-wrapper">
-                <div class="profile-text">
-                    <p>
-                        Hello! I am a student at Patrick Henry High School in San Diego, pursuing a pathway toward a major and career in <strong>Nursing</strong>. Driven by a deep commitment to patient care and community wellness, I regularly dedicate my time to healthcare environments and community service initiatives. 
-                    </p>
-                    <p>
-                        Beyond academic focus, I enjoy playing instruments, programming solutions in Java, and serving as a leader within campus organizations. I aim to blend empathy, scientific discipline, and technical problem-solving to make a meaningful difference in the medical field.
-                    </p>
-                    
-                    <div class="skills-container">
-                        <strong>Core Competencies:</strong>
-                        <ul class="skills-list">
-                            <li class="skill-tag">Patient Interaction</li>
-                            <li class="skill-tag">Hospital Operations</li>
-                            <li class="skill-tag">Java (AP CSA)</li>
-                            <li class="skill-tag">Object-Oriented Programming</li>
-                            <li class="skill-tag">Community Leadership</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="profile-image-container">
-                    <img src="https://your-hosting-site.com/kaiser-picture.jpg" alt="Ryan Leslie profile picture" class="profile-img">
-                </div>
-            </div>
+            <div class="section-divider"></div>
 
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <h3>4.7</h3>
-                    <p>Weighted GPA</p>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>
+                        I am a 17-year-old student at Patrick Henry High School in San Diego, pursuing a pathway toward a major and career in <strong>Nursing</strong>. Driven by a deep commitment to patient care and community wellness, I have dedicated over 115 hours volunteering in the nursing units at Kaiser Hospital — spending time with patients through conversation, providing basic care items, playing games with them, and assisting nurses with discharges and room preparation.
+                    </p>
+                    <p>
+                        Outside of healthcare, I am passionate about playing instruments, building software in Java, and leading campus organizations. I hold a <strong>Java certification</strong> and am currently working toward my <strong>CPR certification</strong>. I strive to bring empathy, scientific discipline, and creative problem-solving to every opportunity — whether in a clinical setting or a coding environment.
+                    </p>
+                    <p>
+                        <strong>Currently working toward:</strong> graduating Patrick Henry High School in 2027 and earning acceptance into nursing school to begin my career as a healthcare professional.
+                    </p>
                 </div>
-                <div class="stat-card">
-                    <h3>115</h3>
-                    <p>Kaiser Hospital Hours</p>
-                </div>
-                <div class="stat-card">
-                    <h3>185+</h3>
-                    <p>Total Service Hours</p>
+
+                <div class="stats-col">
+                    <div class="stat-card">
+                        <div class="stat-num">4.7</div>
+                        <div class="stat-desc">Weighted GPA</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-num">115</div>
+                        <div class="stat-desc">Kaiser Hospital Hours</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-num">185+</div>
+                        <div class="stat-desc">Total Service Hours</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-num">100+</div>
+                        <div class="stat-desc">Lbs of Trash Removed</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -424,60 +490,141 @@
 
     <section id="projects">
         <div class="container">
-            <h2>Projects & Involvements</h2>
-            <p>A compilation of my academic development, technical creations, and volunteer highlights:</p>
-            
+            <p class="section-label">Work &amp; Involvement</p>
+            <h2>Projects &amp; Activities</h2>
+            <div class="section-divider"></div>
+            <p style="color: var(--slate); margin-bottom: 2rem; font-size: 1rem;">
+                A selection of my technical builds, leadership roles, and volunteer contributions.
+            </p>
+
             <div class="project-grid">
+
                 <div class="project-card">
+                    <div class="project-type">Java Application</div>
                     <h3>Volunteer Hour Tracker</h3>
-                    <div class="badge-container">
-                        <span class="badge">Java</span>
-                        <span class="badge">Data Parsing</span>
-                        <span class="badge">Systems Design</span>
+                    <p>A custom Java application engineered to structure, monitor, and log community service metrics. Built as an independent solution to manage real-world scheduling and reporting data.</p>
+                    <div class="project-tech">
+                        <span class="tech-pill">Java</span>
+                        <span class="tech-pill">OOP</span>
+                        <span class="tech-pill">File I/O</span>
                     </div>
-                    <p>A custom Java application engineered to structure, monitor, and log community service metrics dynamically. Developed as an independent solution to manage real-world scheduling and track clinical metrics.</p>
-                    <a href="https://github.com/phAPCSA25period1/final-project-Ryan-Leslie" target="_blank" class="btn">View GitHub Repository</a>
+                    <div class="btn-row">
+                        <a href="https://github.com/phAPCSA25period1/final-project-Ryan-Leslie" target="_blank" class="btn">View Repository</a>
+                    </div>
                 </div>
 
                 <div class="project-card">
+                    <div class="project-type">Java Game &middot; AP CS A Final Project</div>
                     <h3>Zootopia Pet Tamagotchi</h3>
-                    <div class="badge-container">
-                        <span class="badge">Java</span>
-                        <span class="badge">OOP Logic</span>
-                        <span class="badge">State Preservation</span>
+                    <p>An interactive Tamagotchi-style game set in the Zootopia universe. Players adopt and care for animal companions, managing hunger, happiness, and health in a fully Java-built simulation.</p>
+                    <div class="project-tech">
+                        <span class="tech-pill">Java</span>
+                        <span class="tech-pill">Object-Oriented Design</span>
+                        <span class="tech-pill">Game Logic</span>
                     </div>
-                    <p>A dynamic, interactive pet simulation game designed in Java. Implements object-oriented architecture to drive state preservation mechanics, animal behavioral algorithms, and complex user gameplay loops.</p>
-                    <a href="https://github.com/Ryan-Leslie/Zootopia_Pet_Project" target="_blank" class="btn">View GitHub Repository</a>
+                    <div class="btn-row">
+                        <a href="https://github.com/Ryan-Leslie/Zootopia_Pet_Project" target="_blank" class="btn">View Repository</a>
+                    </div>
                 </div>
+
+                <div class="project-card">
+                    <div class="project-type">Healthcare &middot; Volunteer</div>
+                    <h3>Kaiser Hospital — Nursing Unit Volunteer</h3>
+                    <p>Over 115 hours serving in the nursing units at Kaiser Permanente San Diego. Responsibilities include patient companionship, distributing basic care items, and assisting nursing staff with patient discharges and room turnovers.</p>
+                    <div class="project-tech">
+                        <span class="tech-pill">Patient Care</span>
+                        <span class="tech-pill">Nursing Support</span>
+                        <span class="tech-pill">Clinical Environment</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-type">Leadership &amp; Service</div>
+                    <h3>Environmental &amp; Civic Engagement</h3>
+                    <p>Serving as a Board Member for the Surfrider Foundation club, organizing beach cleanups that have removed over 100 pounds of trash from local San Diego beaches. Also coordinating Key Club service initiatives for community health and environmental awareness.</p>
+                    <div class="project-tech">
+                        <span class="tech-pill">Surfrider Foundation</span>
+                        <span class="tech-pill">Key Club</span>
+                        <span class="tech-pill">Event Planning</span>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
     <section id="credentials">
         <div class="container">
+            <p class="section-label">Education</p>
             <h2>Academic Achievements</h2>
-            <p>Maintained a rigorous academic courseload with an emphasis on excellence and character development:</p>
-            <ul>
-                <li><strong>Straight-A Academic Record:</strong> Awarded consistently across all high school semesters.</li>
-                <li><strong>AP Computer Science A (Java):</strong> Advanced software logic, data structures, and algorithmic problem-solving training.</li>
-                <li><strong>Campus Leadership & Involvement:</strong> Active Surfrider Club Board Member and Key Club contributor at Patrick Henry High School.</li>
+            <div class="section-divider"></div>
+
+            <ul class="credentials-list">
+                <li>
+                    <strong>Straight-A Academic Record</strong>
+                    <span>Maintained across all semesters at Patrick Henry High School, San Diego. Expected graduation: 2027.</span>
+                </li>
+                <li>
+                    <strong>Advanced Science Coursework</strong>
+                    <span>Completed AP Biology and AP Chemistry; currently enrolled in Honors Physiology and AP Statistics — building a strong pre-nursing science foundation.</span>
+                </li>
+                <li>
+                    <strong>AP Computer Science A — Java Certified</strong>
+                    <span>Advanced training in software logic, object-oriented programming, and algorithmic problem-solving. Holds an official Java certification.</span>
+                </li>
+                <li>
+                    <strong>CPR Certification — In Progress</strong>
+                    <span>Currently completing CPR/First Aid certification training as part of preparation for a nursing career.</span>
+                </li>
+                <li>
+                    <strong>Surfrider Foundation — Board Member</strong>
+                    <span>Active campus leadership role; organized beach cleanups removing over 100 lbs of trash from San Diego beaches.</span>
+                </li>
+                <li>
+                    <strong>Key Club Contributor</strong>
+                    <span>Coordinating high school service drives and community wellness initiatives.</span>
+                </li>
             </ul>
         </div>
     </section>
 
     <section id="contact">
         <div class="container">
-            <h2>Contact Info</h2>
-            <p>I would welcome the opportunity to connect regarding healthcare tracks, service milestones, or academic collaborations:</p>
-            <ul class="contact-list">
-                <li><strong>Email:</strong> <a href="mailto:rdleslie2008@icloud.com">rdleslie2008@icloud.com</a></li>
-                <li><strong>Phone:</strong> <a href="tel:6193726188">(619) 372-6188</a></li>
-            </ul>
+            <p class="section-label">Get In Touch</p>
+            <h2>Contact</h2>
+            <div class="section-divider"></div>
+
+            <div class="contact-wrapper">
+                <div class="contact-intro">
+                    I would welcome the opportunity to connect — whether regarding healthcare pathways, volunteer opportunities, academic collaborations, or software projects. Feel free to reach out anytime.
+                </div>
+
+                <div class="contact-links">
+                    <a href="mailto:rdleslie2008@icloud.com" class="contact-item">
+                        <div>
+                            <span class="contact-label">Email</span>
+                            rdleslie2008@icloud.com
+                        </div>
+                    </a>
+                    <a href="tel:6193726188" class="contact-item">
+                        <div>
+                            <span class="contact-label">Phone</span>
+                            (619) 372-6188
+                        </div>
+                    </a>
+                    <a href="https://github.com/Ryan-Leslie" target="_blank" class="contact-item">
+                        <div>
+                            <span class="contact-label">GitHub</span>
+                            github.com/Ryan-Leslie
+                        </div>
+                    </a>
+                </div>
+            </div>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2026 Ryan Leslie. All rights reserved.</p>
+        <p>&copy; 2027 <span>Ryan Leslie</span>. All rights reserved.</p>
     </footer>
 
 </body>
